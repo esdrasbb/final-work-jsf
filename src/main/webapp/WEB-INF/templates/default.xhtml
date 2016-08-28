@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><h:outputText
+			value=": #{msg['application.name']} - #{msg['application.version']} : " />
+		<ui:insert name="title" /></title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:menubar>
+			<p:submenu label="#{msg['page.usuarios.title']}">
+				<p:menuitem value="#{msg['commons.novo']}"
+					action="#{usuarioBean.novo}" ajax="false" />
+				<p:menuitem value="#{msg['commons.listagem']}"
+					action="/usuarios?faces-redirect=true" />
+			</p:submenu>
+
+			<p:menuitem value="#{msg['page.tictactoe.title']}" url="#" />
+
+			<p:submenu label="#{msg['page.ajuda.title']}">
+				<p:menuitem value="#{msg['page.ajuda.title']}"
+					action="help?faces-redirect=true" />
+				<p:menuitem value="#{msg['page.sobre.title']}"
+					action="about?faces-redirect=true" />
+			</p:submenu>
+
+			<f:facet name="options">
+				<p:button value="#{msg['page.logout.title']}"
+					outcome="logout?faces-redirect=true" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+	<h3>
+		<ui:insert name="title" />
+	</h3>
+	<hr />
+	<ui:insert name="body" />
+</h:body>
+</html>
