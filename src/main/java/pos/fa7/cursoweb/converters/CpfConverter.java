@@ -7,6 +7,8 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import pos.fa7.cursoweb.util.MessageHelper;
+
 @FacesConverter("converters.CpfConverter")
 public class CpfConverter implements Converter {
 	public Object getAsObject(FacesContext context, UIComponent component, String value) throws ConverterException {
@@ -17,9 +19,8 @@ public class CpfConverter implements Converter {
 				Long.valueOf(cpf);
 				return cpf;
 			} catch (NumberFormatException e) {
-				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de conversão",
-						"O valor informado não é um número de CPF!");
-				throw new ConverterException(message);
+				throw new ConverterException(
+						MessageHelper.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CpfConverter"));
 			}
 		}
 		return value;

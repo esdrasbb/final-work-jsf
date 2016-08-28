@@ -1,5 +1,7 @@
 package pos.fa7.cursoweb.model;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 /**
  * Define uma cidade de umestado da federacao.
  * 
@@ -44,6 +46,11 @@ public class BaseModel {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 }

@@ -6,6 +6,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import pos.fa7.cursoweb.business.UsuarioBusiness;
 import pos.fa7.cursoweb.business.exception.UsuarioInvalidoException;
 import pos.fa7.cursoweb.model.Usuario;
@@ -15,6 +18,8 @@ import pos.fa7.cursoweb.util.MessageHelper;
 @SessionScoped
 public class LoginBean {
 
+	private static final Logger logger = LoggerFactory.getLogger(LoginBean.class);
+	
 	/** Referencia para a camada de regras de negocio */
 	@ManagedProperty("#{usuarioBusiness}")
 	private UsuarioBusiness usuarioBusiness;
@@ -30,8 +35,9 @@ public class LoginBean {
 			usuarioAutenticado = usuarioBusiness.autenticarUsuario(cpf, senha);
 			return "index?faces-redirect=true";
 		} catch (UsuarioInvalidoException e) {
+			logger.error("Usuario Invalido cpf: {}", cpf);
 			FacesContext.getCurrentInstance().addMessage("loginForm", MessageHelper
-					.createMessage(FacesMessage.SEVERITY_ERROR, "bean.loginBean.usuarioInvalidoException"));
+					.createMessage(FacesMessage.SEVERITY_ERROR, "bean.loginBean.usuarioInvalidoException"));			
 			return null;
 		} finally {
 			cpf = null;

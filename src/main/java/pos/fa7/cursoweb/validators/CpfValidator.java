@@ -7,6 +7,7 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
+import pos.fa7.cursoweb.util.MessageHelper;
 import pos.fa7.cursoweb.util.ValidacaoHelper;
 
 @FacesValidator("validators.CpfValidator")
@@ -17,11 +18,8 @@ public class CpfValidator implements Validator {
 		if (value != null) {
 			String valor = value.toString();
 			if (!ValidacaoHelper.validaCpf(valor)) {
-				FacesMessage message = new FacesMessage();
-				message.setSeverity(FacesMessage.SEVERITY_ERROR);
-				message.setSummary("Erro de Validação");
-				message.setDetail("CPF Inválido");
-				throw new ValidatorException(message);
+				throw new ValidatorException( MessageHelper
+						.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CpfValidator"));
 			}
 		}
 	}
