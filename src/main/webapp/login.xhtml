@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title><h:outputText value="#{msg['page.login.title']}" /></title>
 </h:head>
@@ -13,18 +14,16 @@
 			<h:outputText value="#{msg['page.login.title']}" />
 		</h1>
 		<h:form id="loginForm">
-			<h:message for="loginForm" errorStyle="color: red;" />
-			<h:panelGrid columns="3">
+			<p:growl id="growl" showDetail="false" sticky="false" /> 
+			<h:panelGrid columns="2">
 				<h:outputLabel for="cpfInput"
 					value="#{msg['page.login.label.cpf']}:" />
 				<h:inputText id="cpfInput" value="#{loginBean.cpf}" maxlength="11"
 					size="12" required="true" />
-				<h:message for="cpfInput" errorStyle="color: red;" />
 				<h:outputLabel for="senhaInput"
 					value="#{msg['page.login.label.senha']}:" />
 				<h:inputSecret id="senhaInput" value="#{loginBean.senha}"
 					maxlength="11" size="12" required="true" />
-				<h:message for="senhaInput" errorStyle="color: red;" />
 			</h:panelGrid>
 			<h:commandButton action="#{loginBean.autenticar}"
 				value="#{msg['page.login.label.entrar']}" />

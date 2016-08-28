@@ -6,15 +6,14 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="title">#{msg['page.usuariosEditar.title']}</ui:define>
 	<ui:define name="body">
-		<h:messages globalOnly="true" errorStyle="color:red;" />
+		<p:growl id="growl" showDetail="false" sticky="false" />
 		<h:form id="usuarioForm">
 			<h:inputHidden value="#{usuarioBean.usuario.id}" />
-			<p:panelGrid columns="3">
+			<p:panelGrid columns="2">
 				<h:outputLabel for="idInput"
 					value="#{msg['page.usuarios.label.id']}:" />
 				<p:inputText id="idInput" value="#{usuarioBean.usuario.id}"
 					disabled="true" />
-				<h:panelGroup />
 
 				<h:outputLabel for="cpfInput"
 					value="#{msg['page.usuarios.label.cpf']}:" />
@@ -22,7 +21,6 @@
 					converter="converters.CpfConverter" required="true" maxlength="11">
 					<f:validator validatorId="validators.CpfValidator" />
 				</p:inputText>
-				<p:message for="cpfInput" />
 
 				<h:outputLabel for="nomeReduzidoInput"
 					value="#{msg['page.usuarios.label.nomeReduzido']}:" />
@@ -30,13 +28,11 @@
 					value="#{usuarioBean.usuario.nomeReduzido}">
 					<f:validateLength minimum="5" />
 				</p:inputText>
-				<p:message for="nomeReduzidoInput" />
 
 				<h:outputLabel for="nomeCompletoInput"
 					value="#{msg['page.usuarios.label.nomeCompleto']}:" />
 				<p:inputTextarea id="nomeCompletoInput"
 					value="#{usuarioBean.usuario.nomeCompleto}" rows="5" cols="20" />
-				<p:message for="nomeCompletoInput" />
 
 				<h:outputLabel for="dataNascimentoInput"
 					value="#{msg['page.usuarios.label.dataNascimento']}:" />
@@ -44,19 +40,16 @@
 					value="#{usuarioBean.usuario.dataNascimento}">
 					<f:convertDateTime pattern="dd/MM/yyyy" />
 				</p:inputText>
-				<p:message for="dataNascimentoInput" />
 
 				<h:outputLabel for="emailInput"
 					value="#{msg['page.usuarios.label.email']}:" />
 				<p:inputText id="emailInput" value="#{usuarioBean.usuario.email}"
 					required="true" />
-				<p:message for="emailInput" />
 
 				<h:outputLabel for="senhaInput"
 					value="#{msg['page.usuarios.label.senha']}:" />
 				<p:password id="senhaInput" value="#{usuarioBean.usuario.senha}"
 					required="true" />
-				<p:message for="senhaInput" />
 			</p:panelGrid>
 			<hr />
 			<p:commandButton action="#{usuarioBean.salvar}"

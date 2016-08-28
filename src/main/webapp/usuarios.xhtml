@@ -6,7 +6,8 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="title">#{msg['page.usuarios.title']}</ui:define>
 	<ui:define name="body">
-		<h:form>
+		<p:growl id="growl" showDetail="false" sticky="false" />
+		<h:form id="usuariosForm">
 			<p:dataTable value="#{usuarioBean.listaUsuarios}" var="usuario">
 				<p:column>
 					<f:facet name="header">

@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import pos.fa7.cursoweb.business.UsuarioBusiness;
 import pos.fa7.cursoweb.business.exception.UsuarioInvalidoException;
 import pos.fa7.cursoweb.model.Usuario;
+import pos.fa7.cursoweb.util.MessageHelper;
 
 @ManagedBean
 @SessionScoped
@@ -29,10 +30,8 @@ public class LoginBean {
 			usuarioAutenticado = usuarioBusiness.autenticarUsuario(cpf, senha);
 			return "index?faces-redirect=true";
 		} catch (UsuarioInvalidoException e) {
-			FacesMessage message = new FacesMessage();
-			message.setSeverity(FacesMessage.SEVERITY_ERROR);
-			message.setDetail("Usuário ou senha inválidos!");
-			FacesContext.getCurrentInstance().addMessage("loginForm", message);
+			FacesContext.getCurrentInstance().addMessage("loginForm", MessageHelper
+					.createMessage(FacesMessage.SEVERITY_ERROR, "bean.loginBean.usuarioInvalidoException"));
 			return null;
 		} finally {
 			cpf = null;

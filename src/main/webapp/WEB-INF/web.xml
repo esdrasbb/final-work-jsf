@@ -32,6 +32,6 @@
 
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>cupertino</param-value>
+		<param-value>afterdark</param-value>
 	</context-param>
 </web-app>
