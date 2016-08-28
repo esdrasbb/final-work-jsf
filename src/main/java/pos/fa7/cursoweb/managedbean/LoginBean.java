@@ -31,7 +31,7 @@ public class LoginBean {
 		} catch (UsuarioInvalidoException e) {
 			FacesMessage message = new FacesMessage();
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
-			message.setDetail("Usu�rio ou senha inv�lidos!");
+			message.setDetail("Usuário ou senha inválidos!");
 			FacesContext.getCurrentInstance().addMessage("loginForm", message);
 			return null;
 		} finally {

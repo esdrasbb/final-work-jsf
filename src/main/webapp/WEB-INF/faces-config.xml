@@ -17,7 +17,7 @@
 	</application>
 
 	<lifecycle>
-		<phase-listener>br.com.cursojsf.listeners.LoginPhaseListener</phase-listener>
+		<phase-listener>pos.fa7.cursoweb.listeners.LoginPhaseListener</phase-listener>
 	</lifecycle>
 
 </faces-config>

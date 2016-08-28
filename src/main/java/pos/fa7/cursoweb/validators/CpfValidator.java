@@ -19,8 +19,8 @@ public class CpfValidator implements Validator {
 			if (!ValidacaoHelper.validaCpf(valor)) {
 				FacesMessage message = new FacesMessage();
 				message.setSeverity(FacesMessage.SEVERITY_ERROR);
-				message.setSummary("Erro de Valida��o");
-				message.setDetail("CPF Inv�lido");
+				message.setSummary("Erro de Validação");
+				message.setDetail("CPF Inválido");
 				throw new ValidatorException(message);
 			}
 		}

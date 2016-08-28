@@ -17,8 +17,8 @@ public class CpfConverter implements Converter {
 				Long.valueOf(cpf);
 				return cpf;
 			} catch (NumberFormatException e) {
-				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de convers�o",
-						"O valor informado n�o � um n�mero de CPF!");
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de conversão",
+						"O valor informado não é um número de CPF!");
 				throw new ConverterException(message);
 			}
 		}
