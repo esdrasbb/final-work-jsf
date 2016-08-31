@@ -97,7 +97,7 @@ public class Usuario extends BaseModel implements Serializable {
 	public void setCep(Cep cep) {
 		this.cep = cep;
 	}
-	
+
 	public Usuario() {
 		super();
 	}

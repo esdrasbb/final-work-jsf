@@ -30,5 +30,5 @@ public class Cep {
 	public String show() {
 		return regiao + sufixo;
 	}
-	
+
 }

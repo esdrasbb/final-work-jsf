@@ -32,8 +32,7 @@ public class UsuarioBusiness {
 	 * @throws UsuarioInvalidoException
 	 *             caso a autenticacao seja mal sucedida
 	 */
-	public Usuario autenticarUsuario(String cpf, String senha)
-			throws UsuarioInvalidoException {
+	public Usuario autenticarUsuario(String cpf, String senha) throws UsuarioInvalidoException {
 		Usuario usuario = usuarioDao.selecionar(cpf);
 		if (usuario == null || !usuario.getSenha().equals(senha)) {
 			throw new UsuarioInvalidoException();

@@ -94,8 +94,7 @@ public class ValidacaoHelper {
 
 	public static boolean validaCep(Object object) {
 		Cep cep = (Cep) object;
-		if (cep == null || !StringUtils.isNumeric(cep.getRegiao()) ||
-				!StringUtils.isNumeric(cep.getSufixo())) {
+		if (cep == null || !StringUtils.isNumeric(cep.getRegiao()) || !StringUtils.isNumeric(cep.getSufixo())) {
 			return false;
 		}
 		return true;

@@ -43,7 +43,7 @@ public class DBConnection {
 					+ "email VARCHAR(100), nome_completo VARCHAR(200), nome_reduzido VARCHAR(100), senha VARCHAR(30), "
 					+ "data_nascimento TIMESTAMP)");
 		} catch (SQLException e) {
-			//always create
+			// always create
 		}
 	}
 }

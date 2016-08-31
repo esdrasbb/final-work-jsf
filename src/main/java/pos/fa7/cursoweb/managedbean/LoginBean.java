@@ -19,7 +19,7 @@ import pos.fa7.cursoweb.util.MessageHelper;
 public class LoginBean {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginBean.class);
-	
+
 	/** Referencia para a camada de regras de negocio */
 	@ManagedProperty("#{usuarioBusiness}")
 	private UsuarioBusiness usuarioBusiness;
@@ -37,7 +37,7 @@ public class LoginBean {
 		} catch (UsuarioInvalidoException e) {
 			logger.error("Usuario Invalido cpf: {}", cpf);
 			FacesContext.getCurrentInstance().addMessage("loginForm", MessageHelper
-					.createMessage(FacesMessage.SEVERITY_ERROR, "bean.loginBean.usuarioInvalidoException"));			
+					.createMessage(FacesMessage.SEVERITY_ERROR, "bean.loginBean.usuarioInvalidoException"));
 			return null;
 		} finally {
 			cpf = null;

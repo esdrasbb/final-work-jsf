@@ -18,8 +18,8 @@ public class CpfValidator implements Validator {
 		if (value != null) {
 			String valor = value.toString();
 			if (!ValidacaoHelper.validaCpf(valor)) {
-				throw new ValidatorException( MessageHelper
-						.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CpfValidator"));
+				throw new ValidatorException(
+						MessageHelper.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CpfValidator"));
 			}
 		}
 	}

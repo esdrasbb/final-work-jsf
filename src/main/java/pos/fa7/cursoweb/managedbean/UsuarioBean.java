@@ -20,7 +20,7 @@ import pos.fa7.cursoweb.util.MessageHelper;
 public class UsuarioBean {
 
 	private static final Logger logger = LoggerFactory.getLogger(UsuarioBean.class);
-	
+
 	/** Referencia para a camada de regras de negocio */
 	@ManagedProperty("#{usuarioBusiness}")
 	private UsuarioBusiness usuarioBusiness;
@@ -52,16 +52,16 @@ public class UsuarioBean {
 	public String salvar() {
 		usuarioBusiness.salvarUsuario(usuario);
 		logger.warn("Usuario salvo com sucesso! Usuario: {}", usuario);
-		FacesContext.getCurrentInstance().addMessage("usuariosForm", MessageHelper
-				.createMessage(FacesMessage.SEVERITY_INFO, "bean.usuarioBean.success.save"));
+		FacesContext.getCurrentInstance().addMessage("usuariosForm",
+				MessageHelper.createMessage(FacesMessage.SEVERITY_INFO, "bean.usuarioBean.success.save"));
 		return "usuarios";
 	}
 
 	public String excluir() {
 		usuarioBusiness.excluirUsuario(usuario);
 		logger.warn("Usuario excluido com sucesso! Usuario: {}", usuario);
-		FacesContext.getCurrentInstance().addMessage("usuariosForm", MessageHelper
-				.createMessage(FacesMessage.SEVERITY_INFO, "bean.usuarioBean.success.delete"));
+		FacesContext.getCurrentInstance().addMessage("usuariosForm",
+				MessageHelper.createMessage(FacesMessage.SEVERITY_INFO, "bean.usuarioBean.success.delete"));
 		return "usuarios";
 	}
 

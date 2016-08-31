@@ -35,7 +35,7 @@ public class LoginPhaseListener implements PhaseListener {
 	}
 
 	public void beforePhase(PhaseEvent event) {
-		/* nop */ 
+		/* nop */
 	}
 
 	public PhaseId getPhaseId() {

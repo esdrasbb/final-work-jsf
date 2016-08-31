@@ -17,8 +17,8 @@ public class CepValidator implements Validator {
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
 		if (value != null) {
 			if (!ValidacaoHelper.validaCep(value)) {
-				throw new ValidatorException( MessageHelper
-						.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CepValidator"));
+				throw new ValidatorException(
+						MessageHelper.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CepValidator"));
 			}
 		}
 	}
