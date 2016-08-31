@@ -50,6 +50,14 @@
 					value="#{msg['page.usuarios.label.senha']}:" />
 				<p:password id="senhaInput" value="#{usuarioBean.usuario.senha}"
 					required="true" />
+					
+				<h:outputLabel for="cepInput"
+					value="#{msg['page.usuarios.label.cep']}:" />
+				<p:inputText id="cepInput" value="#{usuarioBean.usuario.cep}"
+					required="true" converter="converters.CepConverter" maxlength="9">
+					<f:validator validatorId="validators.CepValidator" />
+					</p:inputText>
+					
 			</p:panelGrid>
 			<hr />
 			<p:commandButton action="#{usuarioBean.salvar}"

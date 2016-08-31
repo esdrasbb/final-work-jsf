@@ -1,6 +1,6 @@
 package pos.fa7.cursoweb.model;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Define uma cidade de umestado da federacao.

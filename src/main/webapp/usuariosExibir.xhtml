@@ -28,6 +28,10 @@
 			<h:outputText value="#{usuarioBean.usuario.dataNascimento}">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:outputText>
+			<h:outputText value="#{msg['page.usuarios.label.cep']}:" />
+			<h:outputText value="#{usuarioBean.usuario.cep}">
+				<f:converter converterId="converters.CepConverter" />
+			</h:outputText>			
 		</p:panelGrid>
 	</ui:define>
 </ui:composition>

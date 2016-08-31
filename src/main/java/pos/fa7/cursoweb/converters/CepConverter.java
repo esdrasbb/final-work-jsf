@@ -9,30 +9,32 @@ import javax.faces.convert.FacesConverter;
 
 import org.apache.commons.lang3.StringUtils;
 
+import pos.fa7.cursoweb.model.Cep;
 import pos.fa7.cursoweb.util.MessageHelper;
 
-@FacesConverter("converters.CpfConverter")
-public class CpfConverter implements Converter {
+@FacesConverter("converters.CepConverter")
+public class CepConverter implements Converter {
 	public Object getAsObject(FacesContext context, UIComponent component, String value) throws ConverterException {
 		if (StringUtils.isNotBlank(value)) {
-			String cpf = value.replaceAll("\\.", "").replaceAll("\\-", "");
+			String cep = value.replaceAll("\\.", "").replaceAll("\\-", "");
 			try {
 				// Testa se somente existem numeros.
-				Long.valueOf(cpf);
-				return cpf;
+				Long.valueOf(cep);
+				return new Cep(cep.substring(0, 5), cep.substring(5, 8));
 			} catch (NumberFormatException e) {
 				throw new ConverterException(
-						MessageHelper.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CpfConverter"));
+						MessageHelper.createMessage(FacesMessage.SEVERITY_ERROR, "validator.CepConverter"));
 			}
 		}
-		return value;
+		return null;
 	}
 
 	public String getAsString(FacesContext context, UIComponent component, Object value) throws ConverterException {
-		String cpf = (value == null ? null : value.toString());
-		if (StringUtils.isNotBlank(cpf)) {
-			cpf = cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9);
+		Cep cep = (Cep) (value == null ? null : value);
+		String cepText = StringUtils.EMPTY;
+		if (cep != null) {
+			cepText = cep.getRegiao() + "-" + cep.getSufixo();
 		}
-		return cpf;
+		return cepText;
 	}
 }

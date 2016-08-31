@@ -5,96 +5,106 @@ import java.util.Date;
 
 public class Usuario extends BaseModel implements Serializable {
 
-    /**
-     * serialVersionUID.
-     */
-    private static final long serialVersionUID = -3064306490724801147L;
+	/**
+	 * serialVersionUID.
+	 */
+	private static final long serialVersionUID = -3064306490724801147L;
 
-    /**
-     * Nome reduzido do usuario.
-     */
-    private String nomeReduzido;
+	/**
+	 * Nome reduzido do usuario.
+	 */
+	private String nomeReduzido;
 
-    /**
-     * Nome completo do usuario.
-     */
-    private String nomeCompleto;
+	/**
+	 * Nome completo do usuario.
+	 */
+	private String nomeCompleto;
 
-    /**
-     * Email do usuario.
-     */
-    private String email;
+	/**
+	 * Email do usuario.
+	 */
+	private String email;
 
-    /**
-     * Senha
-     */
-    private String senha;
+	/**
+	 * Senha
+	 */
+	private String senha;
 
-    /**
-     * CPF do usuario.
-     */
-    private String cpf;
+	/**
+	 * CPF do usuario.
+	 */
+	private String cpf;
 
-    /**
-     * Data de nascimento.
-     */
-    private Date dataNascimento;
+	/**
+	 * Data de nascimento.
+	 */
+	private Date dataNascimento;
 
-    public String getNomeReduzido() {
-        return nomeReduzido;
-    }
+	private Cep cep;
 
-    public void setNomeReduzido(String nomeReduzido) {
-        this.nomeReduzido = nomeReduzido;
-    }
+	public String getNomeReduzido() {
+		return nomeReduzido;
+	}
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
+	public void setNomeReduzido(String nomeReduzido) {
+		this.nomeReduzido = nomeReduzido;
+	}
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
+	public String getNomeCompleto() {
+		return nomeCompleto;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
 
-    public Usuario() {
-        super();
-    }
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 
-    public Usuario(Long id) {
-        this();
-        setId(id);
-    }
+	public Cep getCep() {
+		return cep;
+	}
+
+	public void setCep(Cep cep) {
+		this.cep = cep;
+	}
+	
+	public Usuario() {
+		super();
+	}
+
+	public Usuario(Long id) {
+		this();
+		setId(id);
+	}
 
 }

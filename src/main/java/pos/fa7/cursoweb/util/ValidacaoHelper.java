@@ -1,5 +1,9 @@
 package pos.fa7.cursoweb.util;
 
+import org.apache.commons.lang3.StringUtils;
+
+import pos.fa7.cursoweb.model.Cep;
+
 /**
  * Classe para auxiliar nas validacoes de numeros (CPF).
  * 
@@ -87,4 +91,14 @@ public class ValidacaoHelper {
 		// resto.
 		return nDigVerific.equals(nDigResult);
 	}
+
+	public static boolean validaCep(Object object) {
+		Cep cep = (Cep) object;
+		if (cep == null || !StringUtils.isNumeric(cep.getRegiao()) ||
+				!StringUtils.isNumeric(cep.getSufixo())) {
+			return false;
+		}
+		return true;
+	}
+
 }
