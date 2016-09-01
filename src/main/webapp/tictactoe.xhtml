@@ -1,0 +1,77 @@
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">#{msg['page.tictactoe.title']}</ui:define>
+	<ui:define name="body">
+		<h:messages />
+		<h:form id="tictactoeForm">
+			<h:outputLabel id="outtext" value="#{tictactoeBean.mensagem}" />
+			<br />
+			<br />
+			<p:panelGrid columns="2">
+				<p:outputLabel for="playerX"
+					value="#{msg['page.tictactoe.player']} X: " />
+				<p:inputText id="playerX" value="#{tictactoeBean.playerNameX}" />
+				<p:outputLabel for="playerO"
+					value="#{msg['page.tictactoe.player']} O: " />
+				<p:inputText id="playerO" value="#{tictactoeBean.playerNameO}" />
+			</p:panelGrid>
+			<br />
+			<br />
+			<p:commandButton id="link" actionListener="#{tictactoeBean.init}"
+				value="#{msg['page.tictactoe.start']}" update="@form" />
+			<br />
+			<br />
+			<p:panelGrid columns="3">
+
+				<p:commandButton id="btn1" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="0-0" />
+				</p:commandButton>
+
+				<p:commandButton id="btn2" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="0-1" />
+				</p:commandButton>
+
+				<p:commandButton id="btn3" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="0-2" />
+				</p:commandButton>
+
+				<p:commandButton id="btn4" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="1-0" />
+				</p:commandButton>
+
+				<p:commandButton id="btn5" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="1-1" />
+				</p:commandButton>
+
+				<p:commandButton id="btn6" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="1-2" />
+				</p:commandButton>
+
+				<p:commandButton id="btn7" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="2-0" />
+				</p:commandButton>
+
+				<p:commandButton id="btn8" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="2-1" />
+				</p:commandButton>
+
+				<p:commandButton id="btn9" value="" actionListener="#{tictactoeBean.move}"
+					update="@this outtext">
+					<f:attribute name="position" value="2-2" />
+				</p:commandButton>
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
