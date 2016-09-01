@@ -31,7 +31,7 @@ public class DBConnection {
 
 	}
 
-	public static void initDB() {
+	public static synchronized void initDB() {
 		try (Connection con = DBConnection.getConnection(); Statement stmt = con.createStatement();) {
 			stmt.executeUpdate("DROP TABLE user");
 		} catch (SQLException e) {

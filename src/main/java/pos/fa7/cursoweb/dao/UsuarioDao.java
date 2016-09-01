@@ -36,9 +36,12 @@ public class UsuarioDao {
 
 	private static final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
+	static{
+		DBConnection.initDB();
+	}
+	
 	@PostConstruct
 	public void init() {
-		DBConnection.initDB();
 		Calendar dataNascimento = Calendar.getInstance();
 
 		Usuario usuario = new Usuario();
