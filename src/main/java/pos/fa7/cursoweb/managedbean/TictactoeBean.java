@@ -44,7 +44,7 @@ public class TictactoeBean implements Serializable {
 
 	public void init(ActionEvent event) {
 		currentPlayer = State.X;
-		mensagem = MessageHelper.getMessage("page.tictactoe.label.current", currentPlayer);
+		mensagem = MessageHelper.getMessage("page.tictactoe.label.current", getPlayerName());
 		moveCount = 0;
 		canMove = true;
 		initBoard();
@@ -175,7 +175,7 @@ public class TictactoeBean implements Serializable {
 		}
 
 		changePlayer();
-		mensagem = MessageHelper.getMessage("page.tictactoe.label.current", currentPlayer);
+		mensagem = MessageHelper.getMessage("page.tictactoe.label.current", getPlayerName());
 	}
 
 	private String getPlayerName() {
