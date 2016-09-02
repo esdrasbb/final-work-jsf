@@ -78,6 +78,13 @@ public class TictactoeBean implements Serializable {
 		}
 	}
 
+	private void disableButtons() {
+		for (String componentName : BUTTON_COMPONENTS) {
+			CommandButton cmdBtn = (CommandButton) findComponent(componentName);
+			cmdBtn.setDisabled(true);
+		}
+	}	
+	
 	private void initBoard() {
 		board = new State[BOARD_SIZE][BOARD_SIZE];
 		for (int i = 0; i < BOARD_SIZE; i++) {
@@ -127,6 +134,7 @@ public class TictactoeBean implements Serializable {
 			if (i == BOARD_SIZE - 1) {
 				mensagem = MessageHelper.getMessage("page.tictactoe.label.winner", getPlayerName());
 				canMove = false;
+				disableButtons();
 				return;
 			}
 		}
@@ -138,6 +146,7 @@ public class TictactoeBean implements Serializable {
 			if (i == BOARD_SIZE - 1) {
 				mensagem = MessageHelper.getMessage("page.tictactoe.label.winner", getPlayerName());
 				canMove = false;
+				disableButtons();
 				return;
 			}
 		}
@@ -151,6 +160,7 @@ public class TictactoeBean implements Serializable {
 				if (i == BOARD_SIZE - 1) {
 					mensagem = MessageHelper.getMessage("page.tictactoe.label.winner", getPlayerName());
 					canMove = false;
+					disableButtons();
 					return;
 				}
 			}
@@ -163,6 +173,7 @@ public class TictactoeBean implements Serializable {
 			if (i == BOARD_SIZE - 1) {
 				mensagem = MessageHelper.getMessage("page.tictactoe.label.winner", getPlayerName());
 				canMove = false;
+				disableButtons();
 				return;
 			}
 		}
@@ -171,6 +182,7 @@ public class TictactoeBean implements Serializable {
 		if (moveCount == (BOARD_SIZE * BOARD_SIZE)) {
 			mensagem = MessageHelper.getMessage("page.tictactoe.label.draw");
 			canMove = false;
+			disableButtons();
 			return;
 		}
 
